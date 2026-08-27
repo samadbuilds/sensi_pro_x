@@ -3,9 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SENSI PRO X</title>
+
+<title>Sensi Pro X - iPhone & Samsung S Series</title>
+
+<meta name="description" content="Sensi Pro X is a free sensitivity generator for iPhone and Samsung Galaxy S Series devices. Generate optimized sensitivity settings for your gameplay.">
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -18,7 +22,7 @@ body{
   background:
     radial-gradient(circle at top,#12352a 0%,transparent 35%),
     linear-gradient(135deg,#050505,#0d0d0d 55%,#07130e);
-  color:#fff;
+  color:white;
   padding:25px 15px 50px;
 }
 
@@ -27,6 +31,8 @@ body{
   max-width:650px;
   margin:auto;
 }
+
+/* HEADER */
 
 .header{
   text-align:center;
@@ -60,8 +66,10 @@ body{
   font-size:14px;
 }
 
+/* CARDS */
+
 .card{
-  background:rgba(17,17,17,.92);
+  background:rgba(17,17,17,.94);
   border:1px solid #292929;
   border-radius:22px;
   padding:22px;
@@ -74,6 +82,8 @@ body{
   font-size:18px;
   margin-bottom:16px;
 }
+
+/* INPUTS */
 
 label{
   display:block;
@@ -100,6 +110,8 @@ input:focus{
   border-color:#00ff88;
 }
 
+/* SEARCH */
+
 .search-box{
   position:relative;
 }
@@ -114,6 +126,8 @@ input:focus{
   top:14px;
   color:#777;
 }
+
+/* QUICK PRESETS */
 
 .quick-title{
   color:#aaa;
@@ -145,6 +159,8 @@ input:focus{
   color:#00ff88;
 }
 
+/* MAIN BUTTON */
+
 .main-btn{
   width:100%;
   margin-top:20px;
@@ -163,6 +179,8 @@ input:focus{
   transform:translateY(-2px);
   box-shadow:0 8px 25px rgba(0,255,136,.18);
 }
+
+/* SECONDARY */
 
 .secondary-buttons{
   display:grid;
@@ -186,20 +204,25 @@ input:focus{
   color:#00ff88;
 }
 
+/* RESULTS */
+
 .result{
   display:none;
   animation:appear .45s ease;
 }
 
 @keyframes appear{
+
   from{
     opacity:0;
     transform:translateY(15px);
   }
+
   to{
     opacity:1;
     transform:translateY(0);
   }
+
 }
 
 .result-header{
@@ -223,6 +246,8 @@ input:focus{
   color:#00ff88;
   border:1px solid #124e33;
 }
+
+/* SETTINGS */
 
 .setting{
   background:#181818;
@@ -273,6 +298,8 @@ input:focus{
   line-height:1.4;
 }
 
+/* TIP */
+
 .tip{
   margin-top:16px;
   padding:15px;
@@ -283,6 +310,8 @@ input:focus{
   font-size:12px;
   line-height:1.6;
 }
+
+/* COPY */
 
 .copy-btn{
   width:100%;
@@ -301,10 +330,13 @@ input:focus{
   color:#000;
 }
 
+/* INFO */
+
 .info-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
+  margin-top:15px;
 }
 
 .info{
@@ -324,12 +356,16 @@ input:focus{
   color:#eee;
 }
 
+/* FOOTER */
+
 .footer{
   text-align:center;
   color:#555;
   font-size:11px;
   margin-top:25px;
 }
+
+/* TOAST */
 
 .toast{
   position:fixed;
@@ -353,11 +389,10 @@ input:focus{
   transform:translateX(-50%) translateY(0);
 }
 
-.hidden{
-  display:none;
-}
+/* MOBILE */
 
 @media(max-width:500px){
+
   .header h1{
     font-size:34px;
   }
@@ -373,78 +408,164 @@ input:focus{
   .info-grid{
     grid-template-columns:1fr;
   }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
+  <!-- HEADER -->
+
   <div class="header">
-    <div class="logo">SENSI PRO X</div>
-    <h1>AIM <span>BOOST</span></h1>
-    <p>Advanced sensitivity generator for iPhone & Samsung S Series</p>
+
+    <div class="logo">
+      SENSI PRO X
+    </div>
+
+    <h1>
+      AIM <span>BOOST</span>
+    </h1>
+
+    <p>
+      Advanced sensitivity generator for iPhone & Samsung S Series
+    </p>
+
   </div>
 
-  <!-- SELECTOR -->
+
+  <!-- DEVICE CARD -->
+
   <div class="card">
 
-    <div class="section-title">🎮 Choose Your Device</div>
+    <div class="section-title">
+      🎮 Choose Your Device
+    </div>
 
-    <label>Brand</label>
+
+    <!-- BRAND -->
+
+    <label for="brand">
+      Brand
+    </label>
 
     <select id="brand" onchange="loadPhones()">
-      <option value="">Select brand</option>
-      <option value="iphone">Apple iPhone</option>
-      <option value="samsung">Samsung Galaxy S Series</option>
+
+      <option value="">
+        Select brand
+      </option>
+
+      <option value="iphone">
+        Apple iPhone
+      </option>
+
+      <option value="samsung">
+        Samsung Galaxy S Series
+      </option>
+
     </select>
 
-    <label>Search Phone</label>
+
+    <!-- SEARCH -->
+
+    <label for="search">
+      Search Phone
+    </label>
 
     <div class="search-box">
-      <span class="search-icon">🔎</span>
+
+      <span class="search-icon">
+        🔎
+      </span>
+
       <input
         id="search"
         type="text"
         placeholder="Search your phone..."
         oninput="filterPhones()"
       >
+
     </div>
 
-    <label>Phone Model</label>
+
+    <!-- PHONE MODEL -->
+
+    <label for="phone">
+      Phone Model
+    </label>
 
     <select id="phone">
-      <option value="">Choose your phone</option>
+
+      <option value="">
+        Choose your phone
+      </option>
+
     </select>
 
-    <div class="quick-title">QUICK PRESET</div>
+
+    <!-- PRESETS -->
+
+    <div class="quick-title">
+      QUICK PRESET
+    </div>
+
 
     <div class="quick-buttons">
-      <button class="quick-btn active" onclick="setPreset('headshot',this)">
+
+      <button
+        class="quick-btn active"
+        onclick="setPreset('headshot',this)"
+      >
         🎯 HEADSHOT
       </button>
 
-      <button class="quick-btn" onclick="setPreset('balanced',this)">
+
+      <button
+        class="quick-btn"
+        onclick="setPreset('balanced',this)"
+      >
         ⚖️ BALANCED
       </button>
 
-      <button class="quick-btn" onclick="setPreset('smooth',this)">
-        🌀 SMOOTH
+
+      <button
+        class="quick-btn"
+        onclick="setPreset('smooth',this)"
+      >
+        🔵 SMOOTH
       </button>
+
     </div>
 
-    <button class="main-btn" onclick="generateSensi()">
+
+    <!-- GENERATE -->
+
+    <button
+      class="main-btn"
+      onclick="generateSensi()"
+    >
       ⚡ GENERATE SENSI
     </button>
 
+
     <div class="secondary-buttons">
 
-      <button class="secondary-btn" onclick="randomSensi()">
+      <button
+        class="secondary-btn"
+        onclick="randomSensi()"
+      >
         🎲 Random
       </button>
 
-      <button class="secondary-btn" onclick="resetApp()">
+
+      <button
+        class="secondary-btn"
+        onclick="resetApp()"
+      >
         🔄 Reset
       </button>
 
@@ -453,27 +574,52 @@ input:focus{
   </div>
 
 
-  <!-- RESULT -->
-  <div class="card result" id="result">
+  <!-- RESULTS -->
+
+  <div
+    class="card result"
+    id="result"
+  >
 
     <div class="result-header">
 
-      <h2 id="resultTitle">YOUR SENSI</h2>
+      <h2 id="resultTitle">
+        YOUR SENSI
+      </h2>
 
-      <div class="badge">OPTIMIZED</div>
+      <div class="badge">
+        OPTIMIZED
+      </div>
 
     </div>
 
 
+    <!-- GENERAL -->
+
     <div class="setting">
 
       <div class="setting-top">
-        <span class="setting-name">General</span>
-        <span class="setting-value" id="general">0</span>
+
+        <span class="setting-name">
+          General
+        </span>
+
+        <span
+          class="setting-value"
+          id="general"
+        >
+          0
+        </span>
+
       </div>
 
       <div class="bar">
-        <div class="bar-fill" id="generalBar"></div>
+
+        <div
+          class="bar-fill"
+          id="generalBar"
+        ></div>
+
       </div>
 
       <div class="description">
@@ -483,15 +629,32 @@ input:focus{
     </div>
 
 
+    <!-- RED DOT -->
+
     <div class="setting">
 
       <div class="setting-top">
-        <span class="setting-name">Red Dot</span>
-        <span class="setting-value" id="redDot">0</span>
+
+        <span class="setting-name">
+          Red Dot
+        </span>
+
+        <span
+          class="setting-value"
+          id="redDot"
+        >
+          0
+        </span>
+
       </div>
 
       <div class="bar">
-        <div class="bar-fill" id="redDotBar"></div>
+
+        <div
+          class="bar-fill"
+          id="redDotBar"
+        ></div>
+
       </div>
 
       <div class="description">
@@ -501,15 +664,32 @@ input:focus{
     </div>
 
 
+    <!-- 2X -->
+
     <div class="setting">
 
       <div class="setting-top">
-        <span class="setting-name">2x Scope</span>
-        <span class="setting-value" id="scope2x">0</span>
+
+        <span class="setting-name">
+          2x Scope
+        </span>
+
+        <span
+          class="setting-value"
+          id="scope2x"
+        >
+          0
+        </span>
+
       </div>
 
       <div class="bar">
-        <div class="bar-fill" id="scope2xBar"></div>
+
+        <div
+          class="bar-fill"
+          id="scope2xBar"
+        ></div>
+
       </div>
 
       <div class="description">
@@ -519,15 +699,32 @@ input:focus{
     </div>
 
 
+    <!-- 4X -->
+
     <div class="setting">
 
       <div class="setting-top">
-        <span class="setting-name">4x Scope</span>
-        <span class="setting-value" id="scope4x">0</span>
+
+        <span class="setting-name">
+          4x Scope
+        </span>
+
+        <span
+          class="setting-value"
+          id="scope4x"
+        >
+          0
+        </span>
+
       </div>
 
       <div class="bar">
-        <div class="bar-fill" id="scope4xBar"></div>
+
+        <div
+          class="bar-fill"
+          id="scope4xBar"
+        ></div>
+
       </div>
 
       <div class="description">
@@ -537,15 +734,32 @@ input:focus{
     </div>
 
 
+    <!-- SNIPER -->
+
     <div class="setting">
 
       <div class="setting-top">
-        <span class="setting-name">Sniper Scope</span>
-        <span class="setting-value" id="sniper">0</span>
+
+        <span class="setting-name">
+          Sniper Scope
+        </span>
+
+        <span
+          class="setting-value"
+          id="sniper"
+        >
+          0
+        </span>
+
       </div>
 
       <div class="bar">
-        <div class="bar-fill" id="sniperBar"></div>
+
+        <div
+          class="bar-fill"
+          id="sniperBar"
+        ></div>
+
       </div>
 
       <div class="description">
@@ -555,15 +769,32 @@ input:focus{
     </div>
 
 
+    <!-- FREE LOOK -->
+
     <div class="setting">
 
       <div class="setting-top">
-        <span class="setting-name">Free Look</span>
-        <span class="setting-value" id="freeLook">0</span>
+
+        <span class="setting-name">
+          Free Look
+        </span>
+
+        <span
+          class="setting-value"
+          id="freeLook"
+        >
+          0
+        </span>
+
       </div>
 
       <div class="bar">
-        <div class="bar-fill" id="freeLookBar"></div>
+
+        <div
+          class="bar-fill"
+          id="freeLookBar"
+        ></div>
+
       </div>
 
       <div class="description">
@@ -573,29 +804,57 @@ input:focus{
     </div>
 
 
+    <!-- INFO -->
+
     <div class="info-grid">
 
       <div class="info">
-        <small>DEVICE</small>
-        <strong id="deviceInfo">-</strong>
+
+        <small>
+          DEVICE
+        </small>
+
+        <strong id="deviceInfo">
+          -
+        </strong>
+
       </div>
+
 
       <div class="info">
-        <small>PRESET</small>
-        <strong id="presetInfo">-</strong>
+
+        <small>
+          PRESET
+        </small>
+
+        <strong id="presetInfo">
+          -
+        </strong>
+
       </div>
 
     </div>
 
 
+    <!-- TIP -->
+
     <div class="tip">
-      💡 <b>Tip:</b> Sensitivity is a starting point, not a guarantee.
-      Test the settings in-game and make small adjustments to match your
-      control style and device response.
+
+      💡 <b>Tip:</b>
+
+      These settings are starting-point presets.
+      Test them in-game and make small adjustments
+      according to your controls and device response.
+
     </div>
 
 
-    <button class="copy-btn" onclick="copySensi()">
+    <!-- COPY -->
+
+    <button
+      class="copy-btn"
+      onclick="copySensi()"
+    >
       📋 COPY SENSI
     </button>
 
@@ -603,22 +862,28 @@ input:focus{
 
 
   <div class="footer">
-    SENSI PRO X • Built for iPhone & Samsung S Series
+    SENSI PRO X • iPhone & Samsung S Series
   </div>
 
 </div>
 
 
-<div class="toast" id="toast">
-  Copied successfully!
+<!-- TOAST -->
+
+<div
+  class="toast"
+  id="toast"
+>
+  Done!
 </div>
 
 
 <script>
 
-/* =========================
+
+/* =====================================================
    PHONE DATABASE
-========================= */
+===================================================== */
 
 const phones = {
 
@@ -660,6 +925,7 @@ const phones = {
 
   ],
 
+
   samsung: [
 
     "Samsung Galaxy S10",
@@ -699,35 +965,71 @@ const phones = {
 };
 
 
-/* =========================
-   SETTINGS
-========================= */
+/* =====================================================
+   VARIABLES
+===================================================== */
 
 let selectedPreset = "headshot";
+
 let currentSensi = null;
 
 
-/* =========================
-   LOAD PHONES
-========================= */
+/* =====================================================
+   LOAD ALL PHONES AFTER BRAND SELECTION
+===================================================== */
 
 function loadPhones(){
 
-  const brand = document.getElementById("brand").value;
-  const phoneSelect = document.getElementById("phone");
+  const brand =
+    document.getElementById("brand").value;
 
-  phoneSelect.innerHTML =
-    '<option value="">Choose your phone</option>';
+  const phoneSelect =
+    document.getElementById("phone");
 
-  document.getElementById("search").value = "";
+  const searchBox =
+    document.getElementById("search");
 
-  if(!brand) return;
 
-  phones[brand].forEach(phone => {
+  // Clear search
+  searchBox.value = "";
 
-    const option = document.createElement("option");
+
+  // Clear old phone list
+  phoneSelect.innerHTML = "";
+
+
+  // Default option
+  const defaultOption =
+    document.createElement("option");
+
+  defaultOption.value = "";
+
+  defaultOption.textContent =
+    brand
+      ? "Select your phone model"
+      : "Choose your phone";
+
+
+  phoneSelect.appendChild(defaultOption);
+
+
+  // Stop if brand isn't selected
+  if(
+    !brand ||
+    !phones[brand]
+  ){
+    return;
+  }
+
+
+  // ADD EVERY PHONE
+  phones[brand].forEach(function(phone){
+
+    const option =
+      document.createElement("option");
 
     option.value = phone;
+
     option.textContent = phone;
 
     phoneSelect.appendChild(option);
@@ -737,88 +1039,166 @@ function loadPhones(){
 }
 
 
-/* =========================
-   SEARCH PHONES
-========================= */
+/* =====================================================
+   SEARCH / FILTER
+===================================================== */
 
 function filterPhones(){
 
-  const brand = document.getElementById("brand").value;
-  const search = document
-    .getElementById("search")
-    .value
-    .toLowerCase();
+  const brand =
+    document.getElementById("brand").value;
 
-  const phoneSelect = document.getElementById("phone");
+  const searchText =
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
 
-  phoneSelect.innerHTML =
-    '<option value="">Choose your phone</option>';
+  const phoneSelect =
+    document.getElementById("phone");
 
-  if(!brand) return;
 
-  phones[brand]
-    .filter(phone =>
-      phone.toLowerCase().includes(search)
-    )
-    .forEach(phone => {
+  phoneSelect.innerHTML = "";
 
-      const option = document.createElement("option");
 
-      option.value = phone;
-      option.textContent = phone;
+  // Brand not selected
+  if(
+    !brand ||
+    !phones[brand]
+  ){
 
-      phoneSelect.appendChild(option);
+    const option =
+      document.createElement("option");
+
+    option.textContent =
+      "Choose your brand first";
+
+    phoneSelect.appendChild(option);
+
+    return;
+
+  }
+
+
+  // Default option
+  const defaultOption =
+    document.createElement("option");
+
+  defaultOption.value = "";
+
+  defaultOption.textContent =
+    searchText
+      ? "Select matching phone"
+      : "Select your phone model";
+
+  phoneSelect.appendChild(defaultOption);
+
+
+  // Find matching phones
+  const matchingPhones =
+    phones[brand].filter(function(phone){
+
+      return phone
+        .toLowerCase()
+        .includes(searchText);
 
     });
+
+
+  // Add matches
+  matchingPhones.forEach(function(phone){
+
+    const option =
+      document.createElement("option");
+
+    option.value = phone;
+
+    option.textContent = phone;
+
+    phoneSelect.appendChild(option);
+
+  });
+
+
+  // No results
+  if(matchingPhones.length === 0){
+
+    const option =
+      document.createElement("option");
+
+    option.disabled = true;
+
+    option.textContent =
+      "No matching phone found";
+
+    phoneSelect.appendChild(option);
+
+  }
 
 }
 
 
-/* =========================
-   PRESETS
-========================= */
+/* =====================================================
+   PRESET
+===================================================== */
 
-function setPreset(preset,button){
+function setPreset(
+  preset,
+  button
+){
 
   selectedPreset = preset;
 
+
   document
     .querySelectorAll(".quick-btn")
-    .forEach(btn => btn.classList.remove("active"));
+    .forEach(function(btn){
+
+      btn.classList.remove("active");
+
+    });
+
 
   button.classList.add("active");
 
 }
 
 
-/* =========================
-   DEVICE FACTOR
-========================= */
+/* =====================================================
+   DEVICE DIFFERENCE
+===================================================== */
 
 function getDeviceFactor(phone){
 
-  if(phone.includes("Pro Max") ||
-     phone.includes("Ultra")){
+  if(
+    phone.includes("Pro Max") ||
+    phone.includes("Ultra")
+  ){
 
     return 2;
 
   }
 
-  if(phone.includes("Pro") ||
-     phone.includes("+")){
+
+  if(
+    phone.includes("Pro") ||
+    phone.includes("+")
+  ){
 
     return 1;
 
   }
+
 
   return 0;
 
 }
 
 
-/* =========================
+/* =====================================================
    GENERATE SENSI
-========================= */
+===================================================== */
 
 function generateSensi(){
 
@@ -828,9 +1208,23 @@ function generateSensi(){
   const phone =
     document.getElementById("phone").value;
 
-  if(!brand || !phone){
 
-    showToast("Select your phone first!");
+  if(!brand){
+
+    showToast(
+      "Please select a brand!"
+    );
+
+    return;
+
+  }
+
+
+  if(!phone){
+
+    showToast(
+      "Please select a phone model!"
+    );
 
     return;
 
@@ -840,59 +1234,92 @@ function generateSensi(){
   let base;
 
 
+  /* IPHONE */
+
   if(brand === "iphone"){
 
     base = {
+
       general:195,
       redDot:188,
       scope2x:178,
       scope4x:168,
       sniper:92,
       freeLook:175
+
     };
 
-  }else{
+  }
+
+
+  /* SAMSUNG */
+
+  else{
 
     base = {
+
       general:200,
       redDot:192,
       scope2x:182,
       scope4x:172,
       sniper:96,
       freeLook:178
+
     };
 
   }
 
 
-  const factor = getDeviceFactor(phone);
+  const factor =
+    getDeviceFactor(phone);
 
 
-  if(selectedPreset === "headshot"){
+  /* HEADSHOT */
+
+  if(
+    selectedPreset === "headshot"
+  ){
 
     base.general += 3 + factor;
+
     base.redDot += 3 + factor;
+
     base.scope2x += 2;
+
     base.scope4x += 1;
 
   }
 
 
-  if(selectedPreset === "balanced"){
+  /* BALANCED */
+
+  if(
+    selectedPreset === "balanced"
+  ){
 
     base.general -= 3;
+
     base.redDot -= 2;
+
     base.scope2x -= 1;
 
   }
 
 
-  if(selectedPreset === "smooth"){
+  /* SMOOTH */
+
+  if(
+    selectedPreset === "smooth"
+  ){
 
     base.general -= 8;
+
     base.redDot -= 6;
+
     base.scope2x -= 5;
+
     base.scope4x -= 4;
+
     base.sniper -= 3;
 
   }
@@ -900,8 +1327,15 @@ function generateSensi(){
 
   currentSensi = base;
 
-  showResults(phone,brand,base);
 
+  showResults(
+    phone,
+    brand,
+    base
+  );
+
+
+  // Remember last phone
   localStorage.setItem(
     "sensiLastPhone",
     phone
@@ -910,9 +1344,9 @@ function generateSensi(){
 }
 
 
-/* =========================
+/* =====================================================
    RANDOM SENSI
-========================= */
+===================================================== */
 
 function randomSensi(){
 
@@ -922,9 +1356,12 @@ function randomSensi(){
   const phone =
     document.getElementById("phone").value;
 
+
   if(!brand || !phone){
 
-    showToast("Select your phone first!");
+    showToast(
+      "Select your phone first!"
+    );
 
     return;
 
@@ -933,62 +1370,88 @@ function randomSensi(){
 
   const random = {
 
-    general:randomNumber(180,200),
+    general:
+      randomNumber(180,200),
 
-    redDot:randomNumber(175,195),
+    redDot:
+      randomNumber(175,195),
 
-    scope2x:randomNumber(165,185),
+    scope2x:
+      randomNumber(165,185),
 
-    scope4x:randomNumber(155,175),
+    scope4x:
+      randomNumber(155,175),
 
-    sniper:randomNumber(85,100),
+    sniper:
+      randomNumber(85,100),
 
-    freeLook:randomNumber(160,180)
+    freeLook:
+      randomNumber(160,180)
 
   };
 
 
   currentSensi = random;
 
-  showResults(phone,brand,random);
+
+  showResults(
+    phone,
+    brand,
+    random
+  );
 
 }
 
 
-/* =========================
+/* =====================================================
    RANDOM NUMBER
-========================= */
+===================================================== */
 
-function randomNumber(min,max){
+function randomNumber(
+  min,
+  max
+){
 
   return Math.floor(
-    Math.random() * (max-min+1)
+    Math.random() *
+    (max - min + 1)
   ) + min;
 
 }
 
 
-/* =========================
-   SHOW RESULTS
-========================= */
+/* =====================================================
+   DISPLAY RESULTS
+===================================================== */
 
-function showResults(phone,brand,sensi){
+function showResults(
+  phone,
+  brand,
+  sensi
+){
 
-  document.getElementById("result").style.display =
-    "block";
+  document.getElementById(
+    "result"
+  ).style.display = "block";
 
 
-  document.getElementById("resultTitle").textContent =
+  document.getElementById(
+    "resultTitle"
+  ).textContent =
     phone + " SENSI";
 
 
-  document.getElementById("deviceInfo").textContent =
+  document.getElementById(
+    "deviceInfo"
+  ).textContent =
     brand === "iphone"
       ? "Apple iPhone"
       : "Samsung Galaxy";
 
 
-  document.getElementById("presetInfo").textContent =
+  document.getElementById(
+    "presetInfo"
+  ).textContent =
     selectedPreset.toUpperCase();
 
 
@@ -997,25 +1460,30 @@ function showResults(phone,brand,sensi){
     sensi.general
   );
 
+
   updateSetting(
     "redDot",
     sensi.redDot
   );
+
 
   updateSetting(
     "scope2x",
     sensi.scope2x
   );
 
+
   updateSetting(
     "scope4x",
     sensi.scope4x
   );
 
+
   updateSetting(
     "sniper",
     sensi.sniper
   );
+
 
   updateSetting(
     "freeLook",
@@ -1023,7 +1491,8 @@ function showResults(phone,brand,sensi){
   );
 
 
-  document.getElementById("result")
+  document
+    .getElementById("result")
     .scrollIntoView({
       behavior:"smooth",
       block:"start"
@@ -1032,33 +1501,46 @@ function showResults(phone,brand,sensi){
 }
 
 
-/* =========================
-   UPDATE BAR
-========================= */
+/* =====================================================
+   UPDATE SENSITIVITY BAR
+===================================================== */
 
-function updateSetting(id,value){
+function updateSetting(
+  id,
+  value
+){
 
-  document.getElementById(id)
-    .textContent = value;
+  document.getElementById(
+    id
+  ).textContent = value;
 
-  let percent =
-    Math.min((value / 200) * 100,100);
 
-  document.getElementById(id+"Bar")
-    .style.width = percent + "%";
+  const percent =
+    Math.min(
+      (value / 200) * 100,
+      100
+    );
+
+
+  document.getElementById(
+    id + "Bar"
+  ).style.width =
+    percent + "%";
 
 }
 
 
-/* =========================
-   COPY
-========================= */
+/* =====================================================
+   COPY SENSI
+===================================================== */
 
 function copySensi(){
 
   if(!currentSensi){
 
-    showToast("Generate sensi first!");
+    showToast(
+      "Generate sensi first!"
+    );
 
     return;
 
@@ -1066,7 +1548,9 @@ function copySensi(){
 
 
   const phone =
-    document.getElementById("phone").value;
+    document.getElementById(
+      "phone"
+    ).value;
 
 
   const text =
@@ -1087,104 +1571,162 @@ Preset: ${selectedPreset.toUpperCase()}
 Generated with SENSI PRO X`;
 
 
+  if(
+    navigator.clipboard &&
+    navigator.clipboard.writeText
+  ){
 
-  navigator.clipboard
-    .writeText(text)
-    .then(() => {
+    navigator.clipboard
+      .writeText(text)
+      .then(function(){
 
-      showToast("Sensi copied!");
+        showToast(
+          "Sensi copied!"
+        );
 
-    })
-    .catch(() => {
+      })
+      .catch(function(){
 
-      showToast("Copy failed. Try again.");
+        showToast(
+          "Copy failed!"
+        );
 
-    });
+      });
+
+  }
 
 }
 
 
-/* =========================
+/* =====================================================
    RESET
-========================= */
+===================================================== */
 
 function resetApp(){
 
-  document.getElementById("brand").value = "";
+  document.getElementById(
+    "brand"
+  ).value = "";
 
-  document.getElementById("phone").innerHTML =
+
+  document.getElementById(
+    "phone"
+  ).innerHTML =
     '<option value="">Choose your phone</option>';
 
-  document.getElementById("search").value = "";
 
-  document.getElementById("result").style.display =
-    "none";
+  document.getElementById(
+    "search"
+  ).value = "";
+
+
+  document.getElementById(
+    "result"
+  ).style.display = "none";
+
 
   currentSensi = null;
 
+
   selectedPreset = "headshot";
+
 
   document
     .querySelectorAll(".quick-btn")
-    .forEach(btn => btn.classList.remove("active"));
+    .forEach(function(btn){
+
+      btn.classList.remove("active");
+
+    });
+
 
   document
     .querySelector(".quick-btn")
     .classList.add("active");
 
-  showToast("Reset complete!");
+
+  showToast(
+    "Reset complete!"
+  );
 
 }
 
 
-/* =========================
+/* =====================================================
    TOAST
-========================= */
+===================================================== */
 
-function showToast(message){
+function showToast(
+  message
+){
 
   const toast =
-    document.getElementById("toast");
+    document.getElementById(
+      "toast"
+    );
 
-  toast.textContent = message;
 
-  toast.classList.add("show");
+  toast.textContent =
+    message;
 
-  setTimeout(() => {
 
-    toast.classList.remove("show");
+  toast.classList.add(
+    "show"
+  );
+
+
+  setTimeout(function(){
+
+    toast.classList.remove(
+      "show"
+    );
 
   },2200);
 
 }
 
 
-/* =========================
-   LOAD SAVED PHONE
-========================= */
+/* =====================================================
+   RESTORE LAST PHONE
+===================================================== */
 
-window.addEventListener("load",() => {
+window.addEventListener(
+  "load",
+  function(){
 
-  const saved =
-    localStorage.getItem("sensiLastPhone");
-
-  if(!saved) return;
-
-
-  let brand = saved.startsWith("iPhone")
-    ? "iphone"
-    : "samsung";
+    const saved =
+      localStorage.getItem(
+        "sensiLastPhone"
+      );
 
 
-  document.getElementById("brand").value =
-    brand;
+    if(!saved){
+      return;
+    }
 
-  loadPhones();
 
-  document.getElementById("phone").value =
-    saved;
+    const brand =
+      saved.startsWith("iPhone")
+        ? "iphone"
+        : "samsung";
 
-});
+
+    document.getElementById(
+      "brand"
+    ).value = brand;
+
+
+    // Load every phone
+    loadPhones();
+
+
+    // Select saved phone
+    document.getElementById(
+      "phone"
+    ).value = saved;
+
+  }
+);
 
 </script>
 
